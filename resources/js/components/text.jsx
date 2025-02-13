@@ -1,15 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';  
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-export default function Text() {
-  return (
-    <div>hello world</div>
-  );
+import Home from './Home'
+import About from "./About";
+import Contact from "./Contact";
+
+function MyApp() {
+    return (
+        <BrowserRouter>
+            <h1> Hello</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/about">About</Link></li>
+                    <li>
+                        <Link to="/contact">Contact</Link></li>
+                </ul>
+            </nav>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact/>} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
-
-// Make sure you have the correct id in your HTML element
-const container = document.getElementById('text');
-
-  const root = ReactDOM.createRoot(container);
-  root.render(<Text />);
-
+ReactDOM.createRoot(document.getElementById("app")).render(<MyApp />);

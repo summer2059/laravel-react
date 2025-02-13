@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <id id="text"></id>
+    <id id="app"></id>
     @viteReactRefresh
 @vite('resources/js/app.js')
 </body>
